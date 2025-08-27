@@ -5,6 +5,8 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Card, CardHeader, CardContent, CardFooter } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { GradientBackground } from "@/components/ui/gradient-background";
+import { AssistedPasswordConfirmation } from "@/components/ui/assisted-password-confirmation";
 import { MapPin, Building2, User } from "lucide-react";
 
 const Register = () => {
@@ -31,8 +33,8 @@ const Register = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-hero flex items-center justify-center p-4">
-      <div className="w-full max-w-md">
+    <GradientBackground>
+      <div className="w-full max-w-md p-4">
         {/* Logo */}
         <div className="text-center mb-8">
           <div className="inline-flex items-center gap-3 mb-4">
@@ -114,18 +116,14 @@ const Register = () => {
                       required
                     />
                   </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="confirmPassword">Confirmar Senha</Label>
-                    <Input
-                      id="confirmPassword"
-                      name="confirmPassword"
-                      type="password"
-                      placeholder="Digite a senha novamente"
-                      value={formData.confirmPassword}
-                      onChange={handleInputChange}
-                      required
-                    />
-                  </div>
+                  <AssistedPasswordConfirmation
+                    password={formData.password}
+                    value={formData.confirmPassword}
+                    onChange={(value) => setFormData({ ...formData, confirmPassword: value })}
+                    name="confirmPassword"
+                    id="confirmPassword"
+                    required
+                  />
                   <Button type="submit" className="w-full" variant="gradient">
                     Criar Conta
                   </Button>
@@ -194,18 +192,14 @@ const Register = () => {
                       required
                     />
                   </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="company-confirmPassword">Confirmar Senha</Label>
-                    <Input
-                      id="company-confirmPassword"
-                      name="confirmPassword"
-                      type="password"
-                      placeholder="Digite a senha novamente"
-                      value={formData.confirmPassword}
-                      onChange={handleInputChange}
-                      required
-                    />
-                  </div>
+                  <AssistedPasswordConfirmation
+                    password={formData.password}
+                    value={formData.confirmPassword}
+                    onChange={(value) => setFormData({ ...formData, confirmPassword: value })}
+                    name="confirmPassword"
+                    id="company-confirmPassword"
+                    required
+                  />
                   <Button type="submit" className="w-full" variant="gradient">
                     Criar Conta da Imobiliária
                   </Button>
@@ -229,7 +223,7 @@ const Register = () => {
           </CardFooter>
         </Card>
       </div>
-    </div>
+    </GradientBackground>
   );
 };
 
