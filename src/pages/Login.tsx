@@ -5,6 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Card, CardHeader, CardContent, CardFooter } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { GradientBackground } from "@/components/ui/gradient-background";
 import { MapPin, Building2, User } from "lucide-react";
 
 const Login = () => {
@@ -18,8 +19,8 @@ const Login = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-hero flex items-center justify-center p-4">
-      <div className="w-full max-w-md">
+    <GradientBackground>
+      <div className="w-full max-w-md p-4">
         {/* Logo */}
         <div className="text-center mb-8">
           <div className="inline-flex items-center gap-3 mb-4">
@@ -128,7 +129,7 @@ const Login = () => {
           </CardFooter>
         </Card>
       </div>
-    </div>
+    </GradientBackground>
   );
 };
 
