@@ -170,10 +170,6 @@ const Index = () => {
             />
           </div>
           
-          {/* Announce Button */}
-          <div className="max-w-xs mx-auto mt-6 md:mt-8">
-            <SlidingCTAButton />
-          </div>
         </div>
       </section>
 
@@ -235,6 +231,22 @@ const Index = () => {
               text="Ver Todos" 
               className="bg-background border-2 border-primary text-primary hover:bg-primary hover:text-white px-6 md:px-8 py-4 md:py-6 w-auto min-w-[140px] md:min-w-[160px] text-sm md:text-base"
             />
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-8 md:py-12 bg-background">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-6 md:mb-8">
+            <h2 className="text-xl md:text-2xl font-bold mb-2">Pronto para anunciar seu imóvel?</h2>
+            <p className="text-muted-foreground text-sm md:text-base">
+              Cadastre seu imóvel gratuitamente e alcance milhares de interessados
+            </p>
+          </div>
+          
+          <div className="max-w-xs mx-auto">
+            <SlidingCTAButton />
           </div>
         </div>
       </section>
