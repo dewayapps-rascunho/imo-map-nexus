@@ -16,8 +16,12 @@ import {
   Ban,
   CheckCircle,
   XCircle,
-  Shield
+  Shield,
+  Settings,
+  FileText,
+  Bell
 } from "lucide-react";
+import { ExpandableTabs } from "@/components/ui/expandable-tabs";
 
 const AdminPanel = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -169,6 +173,21 @@ const AdminPanel = () => {
               </div>
             </CardContent>
           </Card>
+        </div>
+
+        {/* Exemplo do ExpandableTabs conforme instruções */}
+        <div className="mb-6">
+          <h3 className="text-lg font-semibold mb-4">Navegação Rápida</h3>
+          <ExpandableTabs 
+            tabs={[
+              { title: "Dashboard", icon: Home },
+              { title: "Notificações", icon: Bell },
+              { type: "separator" },
+              { title: "Configurações", icon: Settings },
+              { title: "Relatórios", icon: FileText },
+              { title: "Segurança", icon: Shield },
+            ]}
+          />
         </div>
 
         <Tabs defaultValue="properties" className="space-y-6">
