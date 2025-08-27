@@ -7,6 +7,7 @@ import { Button } from "./button"
 import { Card, CardContent, CardHeader, CardTitle } from "./card"
 import { Link } from "react-router-dom"
 import { ArrowLeft, Mail } from "lucide-react"
+import { SimpleThemeToggle } from "../theme-toggle"
 
 const forgotPasswordGradients = [
   "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
@@ -61,6 +62,9 @@ export function OTPVerification() {
       overlay={true}
       overlayOpacity={0.2}
     >
+      <div className="absolute top-4 right-4">
+        <SimpleThemeToggle />
+      </div>
       <Card className="w-full max-w-md bg-card/95 backdrop-blur-sm border-border/50">
         <CardHeader className="text-center space-y-4">
           <Link 

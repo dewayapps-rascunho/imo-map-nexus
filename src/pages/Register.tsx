@@ -7,6 +7,7 @@ import { Card, CardHeader, CardContent, CardFooter } from "@/components/ui/card"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { GradientBackground } from "@/components/ui/gradient-background";
 import { AssistedPasswordConfirmation } from "@/components/ui/assisted-password-confirmation";
+import { SimpleThemeToggle } from "@/components/theme-toggle";
 import { MapPin, Building2, User } from "lucide-react";
 
 const Register = () => {
@@ -34,6 +35,9 @@ const Register = () => {
 
   return (
     <GradientBackground>
+      <div className="absolute top-4 right-4">
+        <SimpleThemeToggle />
+      </div>
       <div className="w-full max-w-md p-4">
         {/* Logo */}
         <div className="text-center mb-8">

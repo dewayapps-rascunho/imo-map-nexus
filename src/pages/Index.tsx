@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { GradientBackground } from "@/components/ui/gradient-background";
+import { ThemeToggle } from "@/components/theme-toggle";
 import { 
   MapPin, 
   Home, 
@@ -147,6 +148,7 @@ const Index = () => {
         
         {/* Floating Action Buttons */}
         <div className="absolute top-6 right-6 flex gap-3">
+          <ThemeToggle />
           <Link to="/login">
             <Button variant="outline" className="border-white/30 text-white hover:bg-white hover:text-primary backdrop-blur-sm">
               <User className="w-4 h-4 mr-2" />
