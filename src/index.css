@@ -2,39 +2,74 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
+/* IMO MAP Design System - Real Estate Platform
+All colors MUST be HSL following the teal theme from the logo.
 */
 
 @layer base {
   :root {
+    /* Main brand colors - Teal theme from logo */
     --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --foreground: 200 25% 15%;
 
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 200 25% 15%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 200 25% 15%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Primary: Teal from logo */
+    --primary: 175 60% 35%;
+    --primary-foreground: 0 0% 98%;
+    --primary-light: 175 50% 60%;
+    --primary-dark: 175 70% 25%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Secondary: Lighter teal */
+    --secondary: 180 35% 85%;
+    --secondary-foreground: 175 60% 25%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 200 15% 96%;
+    --muted-foreground: 200 10% 45%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    /* Accent: Orange for CTAs and highlights */
+    --accent: 25 95% 60%;
+    --accent-foreground: 0 0% 98%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 200 20% 90%;
+    --input: 200 20% 94%;
+    --ring: 175 60% 35%;
+
+    /* Real estate specific colors */
+    --success: 142 76% 36%;
+    --success-foreground: 0 0% 98%;
+    --warning: 38 92% 50%;
+    --warning-foreground: 0 0% 98%;
+    --info: 199 89% 48%;
+    --info-foreground: 0 0% 98%;
+
+    /* Map and property colors */
+    --map-pin: 175 60% 35%;
+    --map-pin-highlight: 25 95% 60%;
+    --property-available: 142 76% 36%;
+    --property-sold: 0 84% 60%;
+
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-light)));
+    --gradient-hero: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--primary-dark)) 50%, hsl(175 80% 20%) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(var(--background)), hsl(200 15% 98%));
+
+    /* Shadows */
+    --shadow-sm: 0 2px 8px hsl(var(--primary) / 0.1);
+    --shadow-md: 0 4px 16px hsl(var(--primary) / 0.15);
+    --shadow-lg: 0 8px 32px hsl(var(--primary) / 0.2);
+    --shadow-map: 0 4px 20px hsl(200 25% 15% / 0.25);
+
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 
     --radius: 0.5rem;
 
@@ -56,41 +91,74 @@ All colors MUST be HSL.
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
+    /* Dark mode colors - Teal theme adapted */
+    --background: 200 25% 8%;
+    --foreground: 180 30% 95%;
 
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
+    --card: 200 25% 10%;
+    --card-foreground: 180 30% 95%;
 
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 200 25% 10%;
+    --popover-foreground: 180 30% 95%;
 
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
+    /* Primary colors remain strong in dark mode */
+    --primary: 175 55% 45%;
+    --primary-foreground: 200 25% 8%;
+    --primary-light: 175 45% 65%;
+    --primary-dark: 175 65% 30%;
 
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
+    /* Secondary adapted for dark */
+    --secondary: 200 20% 20%;
+    --secondary-foreground: 175 55% 45%;
 
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
+    --muted: 200 15% 15%;
+    --muted-foreground: 180 10% 65%;
 
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
+    /* Accent stays vibrant */
+    --accent: 25 95% 55%;
+    --accent-foreground: 200 25% 8%;
 
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 62% 45%;
+    --destructive-foreground: 180 30% 95%;
 
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --border: 200 20% 20%;
+    --input: 200 20% 18%;
+    --ring: 175 55% 45%;
+
+    /* Real estate colors for dark mode */
+    --success: 142 70% 40%;
+    --success-foreground: 200 25% 8%;
+    --warning: 38 90% 55%;
+    --warning-foreground: 200 25% 8%;
+    --info: 199 85% 50%;
+    --info-foreground: 200 25% 8%;
+
+    /* Map colors adapted */
+    --map-pin: 175 55% 45%;
+    --map-pin-highlight: 25 95% 55%;
+    --property-available: 142 70% 40%;
+    --property-sold: 0 62% 45%;
+
+    /* Gradients for dark mode */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-light)));
+    --gradient-hero: linear-gradient(135deg, hsl(200 25% 12%) 0%, hsl(175 55% 20%) 50%, hsl(175 65% 15%) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(var(--card)), hsl(200 20% 12%));
+
+    /* Shadows for dark mode */
+    --shadow-sm: 0 2px 8px hsl(175 55% 10% / 0.3);
+    --shadow-md: 0 4px 16px hsl(175 55% 10% / 0.4);
+    --shadow-lg: 0 8px 32px hsl(175 55% 10% / 0.5);
+    --shadow-map: 0 4px 20px hsl(200 25% 5% / 0.4);
+
+    /* Sidebar colors for dark */
+    --sidebar-background: 200 25% 8%;
+    --sidebar-foreground: 180 30% 95%;
+    --sidebar-primary: 175 55% 45%;
+    --sidebar-primary-foreground: 200 25% 8%;
+    --sidebar-accent: 200 20% 15%;
+    --sidebar-accent-foreground: 180 30% 95%;
+    --sidebar-border: 200 20% 20%;
+    --sidebar-ring: 175 55% 45%;
   }
 }
 
