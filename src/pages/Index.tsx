@@ -7,19 +7,17 @@ import { GradientBackground } from "@/components/ui/gradient-background";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { 
   MapPin, 
-  Home, 
   Search, 
   Star, 
-  Users,
   Building2,
-  Shield,
-  Zap,
   Heart,
   TrendingUp,
   ArrowRight,
   User,
   MessageCircle
 } from "lucide-react";
+import { InteractiveHoverButton } from "@/components/ui/interactive-hover-button";
+import { SlideButton } from "@/components/ui/slide-button";
 
 const heroGradients = [
   "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
@@ -35,9 +33,9 @@ const Index = () => {
   const featuredProperties = [
     {
       id: 1,
-      title: "Apartamento Moderno em Copacabana",
-      price: "R$ 850.000",
-      location: "Copacabana, Rio de Janeiro",
+      title: "Apartamento Moderno em Meireles",
+      price: "R$ 450.000",
+      location: "Meireles, Fortaleza",
       image: "/public/lovable-uploads/9e5ac0b0-8ad7-4e6f-bfbe-7b405bac39ae.png",
       beds: 3,
       baths: 2,
@@ -46,9 +44,9 @@ const Index = () => {
     },
     {
       id: 2,
-      title: "Casa com Piscina na Barra",
-      price: "R$ 1.200.000",
-      location: "Barra da Tijuca, Rio de Janeiro",
+      title: "Casa com Piscina na Aldeota",
+      price: "R$ 680.000",
+      location: "Aldeota, Fortaleza",
       image: "/public/lovable-uploads/9e5ac0b0-8ad7-4e6f-bfbe-7b405bac39ae.png",
       beds: 4,
       baths: 3,
@@ -58,8 +56,8 @@ const Index = () => {
     {
       id: 3,
       title: "Cobertura Vista Mar",
-      price: "R$ 2.500.000",
-      location: "Ipanema, Rio de Janeiro",
+      price: "R$ 1.200.000",
+      location: "Praia de Iracema, Fortaleza",
       image: "/public/lovable-uploads/9e5ac0b0-8ad7-4e6f-bfbe-7b405bac39ae.png",
       beds: 5,
       baths: 4,
@@ -68,35 +66,35 @@ const Index = () => {
     }
   ];
 
-  const stats = [
-    { icon: Home, label: "Imóveis", value: "10.000+" },
-    { icon: Users, label: "Clientes", value: "5.000+" },
-    { icon: Building2, label: "Imobiliárias", value: "200+" },
-    { icon: Star, label: "Avaliação", value: "4.9" }
-  ];
-
-  const features = [
+  // Sample markers for Fortaleza map
+  const mapMarkers = [
     {
-      icon: Search,
-      title: "Busca Inteligente",
-      description: "Encontre o imóvel perfeito com nossos filtros avançados"
+      id: 1,
+      position: [-3.7319, -38.5267],
+      popup: {
+        title: "Centro de Fortaleza",
+        content: "Região histórica da cidade"
+      }
     },
     {
-      icon: MapPin,
-      title: "Mapa Interativo", 
-      description: "Visualize imóveis em um mapa completo da cidade"
+      id: 2,
+      position: [-3.7200, -38.5100],
+      popup: {
+        title: "Meireles",
+        content: "Bairro nobre com vista para o mar"
+      }
     },
     {
-      icon: Shield,
-      title: "Segurança Total",
-      description: "Transações seguras e verificadas"
-    },
-    {
-      icon: Zap,
-      title: "Resposta Rápida",
-      description: "Connect-se diretamente com proprietários via WhatsApp"
+      id: 3,
+      position: [-3.7350, -38.5200],
+      popup: {
+        title: "Aldeota",
+        content: "Centro comercial e residencial"
+      }
     }
   ];
+
+
 
   return (
     <div className="min-h-screen bg-background">
@@ -117,31 +115,20 @@ const Index = () => {
             </div>
             
             <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
-              A plataforma mais completa para encontrar, anunciar e gerenciar imóveis no Rio de Janeiro
+              A plataforma mais completa para encontrar, anunciar e gerenciar imóveis em Fortaleza
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-              <Button size="lg" className="bg-white text-primary hover:bg-white/90 text-lg px-8 py-6">
-                <Search className="w-5 h-5 mr-2" />
-                Buscar Imóveis
-              </Button>
-              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-primary text-lg px-8 py-6">
-                <Link to="/register" className="flex items-center">
-                  <Building2 className="w-5 h-5 mr-2" />
-                  Anunciar Imóvel
-                </Link>
-              </Button>
-            </div>
-            
-            {/* Stats */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-2xl mx-auto">
-              {stats.map((stat, index) => (
-                <div key={index} className="text-center">
-                  <stat.icon className="w-8 h-8 mx-auto mb-2 text-white/80" />
-                  <div className="text-2xl font-bold">{stat.value}</div>
-                  <div className="text-sm text-white/70">{stat.label}</div>
-                </div>
-              ))}
+              <InteractiveHoverButton 
+                text="Buscar" 
+                className="bg-white text-primary hover:bg-primary hover:text-white text-lg px-8 py-6 w-auto min-w-[160px]"
+              />
+              <Link to="/register">
+                <InteractiveHoverButton 
+                  text="Anunciar" 
+                  className="border-white text-white hover:bg-white hover:text-primary text-lg px-8 py-6 w-auto min-w-[160px]"
+                />
+              </Link>
             </div>
           </div>
         </div>
@@ -174,7 +161,7 @@ const Index = () => {
             </Badge>
             <h2 className="text-3xl font-bold mb-4">Imóveis em Destaque</h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
-              Descubra os melhores imóveis selecionados especialmente para você
+              Descubra os melhores imóveis selecionados especialmente para você em Fortaleza
             </p>
           </div>
           
@@ -212,38 +199,36 @@ const Index = () => {
           </div>
           
           <div className="text-center mt-12">
-            <Button size="lg" variant="outline" className="group">
-              Ver Todos os Imóveis
-              <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
-            </Button>
+            <InteractiveHoverButton 
+              text="Ver Todos" 
+              className="bg-background border-2 border-primary text-primary hover:bg-primary hover:text-white px-8 py-6 w-auto min-w-[160px]"
+            />
           </div>
         </div>
       </section>
 
-      {/* Features */}
+      {/* Interactive Map Section */}
       <section className="py-20 bg-muted/30">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <Badge variant="secondary" className="mb-4">
-              <Zap className="w-4 h-4 mr-1" />
-              Recursos
+              <MapPin className="w-4 h-4 mr-1" />
+              Explorar no Mapa
             </Badge>
-            <h2 className="text-3xl font-bold mb-4">Por que escolher o IMO MAP?</h2>
+            <h2 className="text-3xl font-bold mb-4">Visualize Imóveis em Fortaleza</h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
-              Tecnologia de ponta para uma experiência única na busca do seu imóvel ideal
+              Navegue pelo mapa interativo e encontre imóveis nos melhores bairros da cidade
             </p>
           </div>
           
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
-            {features.map((feature, index) => (
-              <Card key={index} className="text-center p-6 hover:shadow-lg transition-all duration-300 border-0 bg-background/50 backdrop-blur-sm">
-                <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mx-auto mb-4">
-                  <feature.icon className="w-6 h-6 text-primary" />
-                </div>
-                <h3 className="font-semibold mb-2">{feature.title}</h3>
-                <p className="text-sm text-muted-foreground">{feature.description}</p>
-              </Card>
-            ))}
+          <div className="max-w-6xl mx-auto">
+            <Card className="overflow-hidden border-0 bg-background/50 backdrop-blur-sm p-8">
+              <div className="text-center text-muted-foreground">
+                <MapPin className="w-16 h-16 mx-auto mb-4 text-primary" />
+                <p className="text-lg">Mapa interativo em desenvolvimento</p>
+                <p className="text-sm">Visualize imóveis em Fortaleza em breve!</p>
+              </div>
+            </Card>
           </div>
         </div>
       </section>
@@ -257,17 +242,14 @@ const Index = () => {
             <p className="text-xl text-primary-foreground/80 mb-8">
               Junte-se a milhares de pessoas que já encontraram o imóvel dos seus sonhos
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" variant="secondary" className="bg-white text-primary hover:bg-white/90">
-                <Search className="w-5 h-5 mr-2" />
-                Começar Busca
-              </Button>
-              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-primary">
-                <Link to="/register" className="flex items-center">
-                  <Building2 className="w-5 h-5 mr-2" />
-                  Anunciar Grátis  
-                </Link>
-              </Button>
+            <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
+              <SlideButton className="bg-white text-primary hover:bg-white/90" />
+              <Link to="/register">
+                <InteractiveHoverButton 
+                  text="Anunciar Grátis" 
+                  className="border-white text-white hover:bg-white hover:text-primary px-6 py-3 w-auto min-w-[180px]"
+                />
+              </Link>
             </div>
           </div>
         </div>
@@ -283,7 +265,7 @@ const Index = () => {
                 <span className="font-bold text-lg">IMO MAP</span>
               </div>
               <p className="text-sm text-muted-foreground">
-                Conectando pessoas aos seus imóveis ideais no Rio de Janeiro.
+                Conectando pessoas aos seus imóveis ideais em Fortaleza.
               </p>
             </div>
             <div>
@@ -311,7 +293,7 @@ const Index = () => {
                 </div>
                 <div className="flex items-center gap-2">
                   <MapPin className="w-4 h-4" />
-                  <span>Rio de Janeiro, RJ</span>
+                  <span>Fortaleza, CE</span>
                 </div>
               </div>
             </div>
