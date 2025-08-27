@@ -265,27 +265,6 @@ const Index = () => {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-12 md:py-20 bg-primary text-primary-foreground">
-        <div className="container mx-auto px-4 text-center">
-          <div className="max-w-3xl mx-auto">
-            <TrendingUp className="w-12 h-12 md:w-16 md:h-16 mx-auto mb-4 md:mb-6 opacity-80" />
-            <h2 className="text-2xl md:text-3xl font-bold mb-4">Pronto para encontrar seu novo lar?</h2>
-            <p className="text-base md:text-xl text-primary-foreground/80 mb-6 md:mb-8 px-4">
-              Junte-se a milhares de pessoas que já encontraram o imóvel dos seus sonhos
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 md:gap-6 justify-center items-center">
-              <SlideButton className="bg-white text-primary hover:bg-white/90" />
-              <Link to="/register">
-                <InteractiveHoverButton 
-                  text="Anunciar Grátis" 
-                  className="border-white text-white hover:bg-white hover:text-primary px-4 md:px-6 py-3 w-auto min-w-[160px] md:min-w-[180px] text-sm md:text-base"
-                />
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* Footer */}
       <footer className="py-8 md:py-12 bg-background border-t">
