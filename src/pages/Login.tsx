@@ -76,10 +76,18 @@ const Login = () => {
                       required
                     />
                   </div>
-                  <Button type="submit" className="w-full" variant="gradient">
-                    Entrar
-                  </Button>
-                </form>
+                   <div className="text-right">
+                     <Link
+                       to="/forgot-password"
+                       className="text-sm text-primary hover:underline"
+                     >
+                       Esqueceu a senha?
+                     </Link>
+                   </div>
+                   <Button type="submit" className="w-full" variant="gradient">
+                     Entrar
+                   </Button>
+                 </form>
               </TabsContent>
               
               <TabsContent value="company">
@@ -106,10 +114,18 @@ const Login = () => {
                       required
                     />
                   </div>
-                  <Button type="submit" className="w-full" variant="gradient">
-                    Entrar como Imobiliária
-                  </Button>
-                </form>
+                   <div className="text-right">
+                     <Link
+                       to="/forgot-password"
+                       className="text-sm text-primary hover:underline"
+                     >
+                       Esqueceu a senha?
+                     </Link>
+                   </div>
+                   <Button type="submit" className="w-full" variant="gradient">
+                     Entrar como Imobiliária
+                   </Button>
+                 </form>
               </TabsContent>
             </Tabs>
           </CardContent>

@@ -207,20 +207,26 @@ const Register = () => {
               </TabsContent>
             </Tabs>
           </CardContent>
-          <CardFooter className="flex flex-col space-y-2">
-            <p className="text-sm text-muted-foreground">
-              Já tem uma conta?{" "}
-              <Link to="/login" className="text-primary hover:underline">
-                Fazer login
-              </Link>
-            </p>
-            <Link 
-              to="/" 
-              className="text-sm text-primary hover:underline"
-            >
-              Voltar ao mapa
-            </Link>
-          </CardFooter>
+           <CardFooter className="flex flex-col space-y-2">
+             <p className="text-sm text-muted-foreground">
+               Já tem uma conta?{" "}
+               <Link to="/login" className="text-primary hover:underline">
+                 Fazer login
+               </Link>
+             </p>
+             <p className="text-sm text-muted-foreground">
+               Esqueceu sua senha?{" "}
+               <Link to="/forgot-password" className="text-primary hover:underline">
+                 Recuperar
+               </Link>
+             </p>
+             <Link 
+               to="/" 
+               className="text-sm text-primary hover:underline"
+             >
+               Voltar ao mapa
+             </Link>
+           </CardFooter>
         </Card>
       </div>
     </GradientBackground>
